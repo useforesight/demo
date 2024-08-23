@@ -41,7 +41,7 @@ def load_documents_from_folder(folder_path):
 documents_folder = 'context_documents'
 document_context = load_documents_from_folder(documents_folder)
 
-def chat_with_gpt_stream(prompt, model="gpt-4"):
+def chat_with_gpt_stream(prompt, model="gpt-4o"):
     try:
         response = openai.ChatCompletion.create(
             model=model,
