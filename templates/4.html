@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Foresight</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <link rel="shortcut icon" type="image/png" href="https://animaproject.s3.amazonaws.com/home/favicon.png" />
+    <meta name="og:type" content="website" />
+    <meta name="twitter:card" content="photo" />
+    <link rel="stylesheet" type="text/css" href="css/frame-39884.css" />
+    <link rel="stylesheet" type="text/css" href="css/styleguide.css" />
+    <link rel="stylesheet" type="text/css" href="css/globals.css" />
+
+    <style>
+      /* Initial state: hide the images */
+      .check {
+        opacity: 0;
+        transition: opacity 0.5s ease;
+      }
+
+      /* Initial state: use text-1 class for the first text */
+      .text-1 {
+        opacity: 1;
+        transition: opacity 0.5s ease;
+      }
+
+      /* Later state: use text-2 class for the text when the image appears */
+      .text-2 {
+        opacity: 1;
+        transition: opacity 0.5s ease;
+      }
+    </style>
+  </head>
+  <body style="margin: 0">
+    <input type="hidden" id="anPageName" name="page" value="frame-39884" />
+    <div class="container-center-horizontal">
+      <div class="group-39826">
+        <a href="index.html" class="group-39805">
+          <div class="group-21">
+            <div class="flex-col-2 flex-col-3">
+              <div class="rectangle-1 rectangle-3"></div>
+              <div class="flex-row flex">
+                <div class="rectangle-2 rectangle-3"></div>
+                <div class="rectangle-6 rectangle-3"></div>
+              </div>
+            </div>
+            <div class="flex-row flex">
+              <div class="rectangle"></div>
+              <div class="rectangle"></div>
+              <div class="rectangle"></div>
+            </div>
+          </div>
+          <img class="foresight" src="img/foresight-3.svg" alt="foresight">
+        </a>
+      </div>
+      <!-- <div class="frame-39884 screen" onclick="window.open('frame-39885.html', '_self');"> -->
+
+      <div class="frame-39884 screen">
+
+        <div class="onboarding-center">
+
+          <div class="split left">
+            <div class="centered">
+
+              <h1 class="text inter-normal-mirage-36px">Just a moment…</h1>
+              <div class="flex-row">
+                <img id="check-1" class="check" src="img/check.svg" alt="check" />
+                <div id="text-1" class="text-3">Finding products</div>
+              </div>
+              <div class="flex-row">
+                <img id="check-2" class="check" src="img/check.svg" alt="check" />
+                <div id="text-2" class="text-3">Finding substances</div>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="split right">
+            <div class="centered">
+
+            </div>
+          </div>        
+
+        </div>
+
+      </div>
+    </div>
+
+
+    <script>
+      // Wait a moment after the page loads, then start the animation
+      window.onload = function() {
+        setTimeout(() => {
+          document.getElementById('check-1').style.opacity = 1;
+          document.getElementById('text-1').classList.replace('text-3', 'text-2');
+        }, 1000); // 1 second delay for the first animation
+
+        setTimeout(() => {
+          document.getElementById('check-2').style.opacity = 1;
+          document.getElementById('text-2').classList.replace('text-3', 'text-2');
+        }, 2000); // 2 second delay for the second animation
+
+        // Redirect to 5.html after the animations complete
+        setTimeout(() => {
+          window.location.href = '5.html';
+        }, 4000); // 4 seconds delay to ensure the animations complete before redirecting
+      };
+    </script>
+
+  </body>
+</html>

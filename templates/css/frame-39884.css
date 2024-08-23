@@ -1,0 +1,75 @@
+/* screen - frame-39884 */
+
+.frame-39884 {
+  align-items: flex-start;
+  background-color: var(--basewhite);
+  border-radius: 20px;
+  /* cursor: pointer; */
+  display: flex;
+  flex-direction: column;
+  min-height: 554px;
+  overflow-x: hidden;
+  padding: 28px 24px;
+  width: 886px;
+}
+
+.frame-39884 .x-close {
+  align-self: flex-end;
+  cursor: pointer;
+  height: 32px;
+  width: 32px;
+}
+
+.frame-39884 .text {
+  letter-spacing: -0.72px;
+  line-height: 50px;
+  /* margin-left: 56px; */
+  margin-top: 19px;
+  width: 540px;
+  margin-bottom: 44px;
+}
+
+.frame-39884 .flex-row {
+  align-items: center;
+  display: flex;
+  gap: 20px;
+  height: 36px;
+  /* margin-left: 56px; */
+  margin-top: 20px;
+  min-width: 233px;
+}
+
+.frame-39884 .check {
+  height: 24px;
+  margin-top: 2.0px;
+  width: 24px;
+}
+
+.frame-39884 .text-1 {
+  min-width: 189px;
+}
+
+.frame-39884 .text-2 {
+  font-weight: 600;
+  /* margin-left: 56px; */
+  /* margin-top: 24px; */
+}
+
+.frame-39884 .text-3 {
+  color: var(--mirage);
+  font-family: var(--font-family-inter);
+  font-size: var(--font-size-xxl);
+  letter-spacing: -0.48px;
+  line-height: 36px;
+  white-space: nowrap;
+}
+
+.frame-39884 .text-2 {
+  color: var(--mirage);
+  font-family: var(--font-family-inter);
+  font-size: var(--font-size-xxl);
+  letter-spacing: -0.48px;
+  line-height: 36px;
+  white-space: nowrap;
+  font-weight: 600;
+}

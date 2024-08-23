@@ -1,0 +1,91 @@
+/* screen - frame-39881 */
+
+.frame-39881 {
+  align-items: flex-start;
+  background-color: #fff;
+  display: flex;
+  height: 554px;
+  min-width: 886px;
+  overflow-x: hidden;
+  border-radius: 16px;
+}
+
+#overlay-frame-39881 {
+  align-items: center;
+  background-color: #00000040;
+  justify-content: center;
+}
+
+.frame-39881 .frame-39881-1 {
+  align-items: flex-start;
+  background-color: var(--basewhite);
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  min-height: 554px;
+  padding: 28px 24px;
+  width: 886px;
+}
+
+.frame-39881 .x-close {
+  align-self: flex-end;
+  cursor: pointer;
+  height: 32px;
+  width: 32px;
+}
+
+.frame-39881 .text {
+  letter-spacing: -0.72px;
+  line-height: 50px;
+  /* margin-left: 56px; */
+  /* margin-top: 133px; */
+  width: 540px;
+  margin-top: 14px;
+}
+
+.frame-39881 .add-your-product-dat {
+  letter-spacing: 0;
+  line-height: 24px;
+  /* margin-left: 56px; */
+  margin-top: 20px;
+  min-height: 72px;
+  width: 540px;
+}
+
+.frame-39881 .group-39860 {
+  align-items: flex-start;
+  cursor: pointer;
+  display: flex;
+  height: 44px;
+  /* margin-left: 56px; */
+  margin-top: 20px;
+  min-width: 199px;
+}
+
+.frame-39881 .button {
+  align-items: center;
+  background-color: var(--mirage);
+  border-radius: 8px;
+  box-shadow: 0px 1px 2px #1018280d;
+  display: inline-flex;
+  gap: 8px;
+  justify-content: center;
+  /* overflow: hidden; */
+  padding: 10px 16px;
+  position: relative;
+}
+
+.frame-39881 .text-1 {
+  color: var(--basewhite);
+  font-weight: 600;
+  line-height: 20px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.frame-39881 .arrow-narrow-right {
+  height: 24px;
+  position: relative;
+  width: 24px;
+}

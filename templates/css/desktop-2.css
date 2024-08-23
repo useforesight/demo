@@ -1,0 +1,495 @@
+/* screen - desktop-2 */
+
+.desktop-2 {
+  align-items: flex-start;
+  background-color: var(--gray900);
+  display: flex;
+  min-width: 1440px;
+}
+
+.desktop-2 .overlap-group1 {
+  height: 900px;
+  position: relative;
+  width: 1440px;
+}
+
+.desktop-2 .main {
+  align-items: flex-start;
+  background-color: var(--coconut);
+  display: flex;
+  flex-direction: column;
+  left: 280px;
+  min-height: 900px;
+  overflow-y: scroll;
+  padding: 103px 32px;
+  position: absolute;
+  top: 0;
+  width: 1160px;
+}
+
+.desktop-2 .text-5 {
+  height: 38px;
+  letter-spacing: 0;
+  line-height: 38px;
+  min-width: 69px;
+  white-space: nowrap;
+}
+
+.desktop-2 .text-6 {
+  letter-spacing: 0;
+  line-height: 28px;
+  margin-top: 50px;
+  position: relative;
+  width: 387px;
+}
+
+.desktop-2 .flex-row-1 {
+  align-items: flex-start;
+  display: flex;
+  gap: 28px;
+  height: 470px;
+  margin-top: 23px;
+  min-width: 1091px;
+}
+
+.desktop-2 .job-card-container {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  min-height: 470px;
+  width: 345px;
+}
+
+.desktop-2 .job-card {
+  background-color: var(--basewhite);
+  border: 1px solid;
+  border-color: var(--iron);
+  border-radius: 8px;
+  box-shadow: 0px 1px 2px #1018280f , 0px 1px 3px #1018281a;
+  height: 221px;
+  position: relative;
+  width: 345px;
+}
+
+.desktop-2 .text-and-supporting-text {
+  align-items: flex-start;
+  display: flex;
+  gap: 12px;
+  left: 24px;
+  position: absolute;
+  top: 24px;
+}
+
+.desktop-2 .file-upload-icon {
+  height: 29px;
+  position: relative;
+  width: 36px;
+}
+
+.desktop-2 .overlap-group {
+  align-items: center;
+  background-color: var(--mirage-3);
+  border-radius: 18px;
+  display: flex;
+  height: 36px;
+  min-width: 36px;
+  padding: 0 8px;
+  position: relative;
+  top: -3px;
+}
+
+.desktop-2 .scales-02 {
+  height: 20px;
+  width: 20px;
+}
+
+.desktop-2 .text {
+  height: 29px;
+  letter-spacing: 0;
+  line-height: 24px;
+  margin-top: -1.00px;
+  position: relative;
+  width: 106px;
+}
+
+.desktop-2 .group-39814 {
+  height: 110px;
+  left: 24px;
+  position: absolute;
+  top: 81px;
+  width: 297px;
+}
+
+.desktop-2 .heading-and-icon {
+  align-items: flex-start;
+  display: inline-flex;
+  flex-direction: column;
+  gap: 16px;
+  justify-content: center;
+  left: 0;
+  position: absolute;
+  top: 0;
+}
+
+.desktop-2 .text-1 {
+  height: 26px;
+  letter-spacing: 0;
+  line-height: 20px;
+  margin-top: -1.00px;
+  position: relative;
+  width: 119px;
+}
+
+.desktop-2 .text-and-supporting-text-1 {
+  align-items: flex-start;
+  display: flex;
+  flex: 0 0 auto;
+  gap: 12px;
+  position: relative;
+  width: 162px;
+}
+
+.desktop-2 .text-2 {
+  letter-spacing: 0;
+  line-height: 24px;
+  margin-top: -1.00px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.desktop-2 .frame-39814 {
+  gap: 8px;
+  left: 0;
+  position: absolute;
+  top: 90px;
+  width: 297px;
+}
+
+.desktop-2 .text-3 {
+  color: var(--fiord);
+  font-weight: 500;
+  line-height: 20px;
+  margin-top: -1.00px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.desktop-2 .chevron-right {
+  height: 24px;
+  left: 309px;
+  position: absolute;
+  top: 27px;
+  width: 24px;
+}
+
+.desktop-2 .scales-02-1 {
+  height: 20px;
+  width: 20px;
+}
+
+.desktop-2 .cube-01 {
+  height: 20px;
+  width: 20px;
+}
+
+.desktop-2 .text-and-supporting-text-2 {
+  align-items: flex-start;
+  display: flex;
+  gap: 12px;
+  left: 24px;
+  position: absolute;
+  top: 81px;
+  width: 162px;
+}
+
+.desktop-2 .group-39814-1 {
+  height: 110px;
+  margin-right: -135.00px;
+  position: relative;
+  width: 297px;
+}
+
+.desktop-2 .beaker-01 {
+  height: 20px;
+  width: 20px;
+}
+
+.desktop-2 .text-7 {
+  height: 29px;
+  letter-spacing: 0;
+  line-height: 24px;
+  margin-top: -1.00px;
+  position: relative;
+  width: 156px;
+}
+
+.desktop-2 .content-1 {
+  align-items: flex-start;
+  align-self: stretch;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: space-between;
+  position: relative;
+}
+
+.desktop-2 .button {
+  background-color: var(--basewhite);
+  border: 1px solid;
+  border-color: var(--mischka);
+  border-radius: 8px;
+  box-shadow: 0px 1px 2px #1018280d;
+  height: 40px;
+  overflow: hidden;
+  position: relative;
+  width: 248px;
+}
+
+.desktop-2 .image-66 {
+  background-color: var(--fuchsia-blue);
+  border-radius: 50px;
+  height: 20px;
+  opacity: 0.5;
+  width: 20px;
+}
+
+.desktop-2 .text-8 {
+  letter-spacing: 0;
+  line-height: 20px;
+  white-space: nowrap;
+}
+
+.desktop-2 .flex-col {
+  flex-direction: column;
+  min-height: 408px;
+}
+
+.desktop-2 .frame-39896 {
+  gap: 4px;
+  position: relative;
+  width: 248px;
+}
+
+.desktop-2 .nav-item-base-2 {
+  align-self: stretch;
+  background-color: #f2f3f499;
+  height: 40px;
+  width: 100%;
+}
+
+.desktop-2 .content {
+  align-items: center;
+  display: flex;
+  flex: 1;
+  flex-grow: 1;
+  gap: 12px;
+  position: relative;
+}
+
+.desktop-2 .text-4 {
+  color: var(--gray700);
+  font-weight: 600;
+  line-height: 24px;
+  margin-top: -1.00px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.desktop-2 .nav-item-base-3 {
+  align-self: stretch;
+  cursor: pointer;
+  height: 40px;
+  width: 100%;
+}
+
+.desktop-2 .nav-item-base-4 {
+  align-self: stretch;
+  height: 40px;
+  width: 100%;
+}
+
+.desktop-2 .nav-item-base {
+  align-items: flex-end;
+  border-radius: 6px;
+  display: flex;
+  height: 48px;
+  overflow: hidden;
+  padding: 5.2px 12px;
+  width: 248px;
+}
+
+.desktop-2 .text-9 {
+  letter-spacing: 0.56px;
+  line-height: 24px;
+  min-width: 96px;
+  position: relative;
+  white-space: nowrap;
+}
+
+.desktop-2 .nav-item-base-1 {
+  background-color: var(--basewhite);
+  width: 248px;
+}
+
+.desktop-2 .scales-02-2 {
+  height: 24px;
+  position: relative;
+  width: 24px;
+}
+
+.desktop-2 .cube-01-1 {
+  height: 24px;
+  position: relative;
+  width: 24px;
+}
+
+.desktop-2 .beaker-01-1 {
+  height: 24px;
+  position: relative;
+  width: 24px;
+}
+
+.desktop-2 .text-10 {
+  letter-spacing: 0.56px;
+  line-height: 24px;
+  min-width: 64px;
+  position: relative;
+  white-space: nowrap;
+}
+
+.desktop-2 .text-11 {
+  color: var(--blue-light900);
+  font-weight: 500;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+  width: 22px;
+}
+
+.desktop-2 .text-and-supporting-text-3 {
+  align-items: flex-start;
+  display: inline-flex;
+  flex: 0 0 auto;
+  flex-direction: column;
+  position: relative;
+}
+
+.desktop-2 .text-12 {
+  color: var(--mirage);
+  font-weight: 600;
+  line-height: 20px;
+  margin-top: -1.00px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.desktop-2 .button-1 {
+  left: 212px;
+  padding: 8px;
+  position: absolute;
+  top: 24px;
+}
+
+.desktop-2 .group-39826 {
+  align-items: flex-start;
+  background-color: var(--basewhite);
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-color: var(--iron);
+  display: flex;
+  gap: 1133px;
+  height: 80px;
+  left: 0;
+  min-width: 1440px;
+  padding: 19px 24px;
+  position: absolute;
+  top: 0;
+}
+
+.desktop-2 .group-39805 {
+  align-self: center;
+  height: 30px;
+  position: relative;
+  width: 122px;
+}
+
+.desktop-2 .flex-col-1 {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-height: 9px;
+  width: 15px;
+}
+
+.desktop-2 .rectangle-1 {
+  border-radius: 8.09px;
+  margin-left: 0;
+  width: 15px;
+}
+
+.desktop-2 .flex-row {
+  min-width: 15px;
+}
+
+.desktop-2 .rectangle-2 {
+  border-radius: 8.09px;
+  width: 9px;
+}
+
+.desktop-2 .rectangle-6 {
+  border-radius: 10.79px;
+  width: 2px;
+}
+
+.desktop-2 .button-2 {
+  background-color: var(--basewhite);
+  border: 1px solid;
+  border-color: var(--mischka);
+  box-shadow: 0px 1px 2px #1018280d;
+  padding: 10px 16px;
+  position: relative;
+}
+
+.desktop-2 .star-06 {
+  height: 20px;
+  position: relative;
+  width: 20px;
+}
+
+.desktop-2 .text-13 {
+  color: var(--gray700);
+  font-weight: 600;
+  line-height: 20px;
+  margin-top: -1.00px;
+  position: relative;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+.desktop-2 .button-3 {
+  align-items: center;
+  border-radius: 8px;
+  display: inline-flex;
+  gap: 8px;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.desktop-2 .flex {
+  align-items: flex-start;
+  display: flex;
+  gap: 4px;
+}
+
+.desktop-2 .frame {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+}

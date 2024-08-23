@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Foresight</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+    <link rel="shortcut icon" type="image/png" href="https://animaproject.s3.amazonaws.com/home/favicon.png" />
+    <meta name="og:type" content="website" />
+    <meta name="twitter:card" content="photo" />
+    <link rel="stylesheet" type="text/css" href="css/frame-39886.css" />
+    <link rel="stylesheet" type="text/css" href="css/styleguide.css" />
+    <link rel="stylesheet" type="text/css" href="css/globals.css" />
+
+    <style>
+      /* Hide the native checkbox */
+      input[type="checkbox"] {
+        display: none;
+      }
+
+      /* Base style for checkbox container */
+      .checkbox-base {
+        width: 20px;
+        height: 20px;
+        border: 2px solid #ccc;
+        border-radius: 4px;
+        display: inline-block;
+        position: relative;
+        cursor: pointer;
+        transition: border-color 0.3s ease;
+        margin-right: 6px;
+      }
+
+      /* Style when the checkbox is selected */
+      input[type="checkbox"]:checked + .checkbox-base {
+        border-color: #007bff;
+        background-color: #007bff;
+      }
+
+      /* Checkmark style when checkbox is selected */
+      input[type="checkbox"]:checked + .checkbox-base::after {
+        content: '';
+        position: absolute;
+        top: 2px;
+        left: 4px;
+        width: 4px;
+        height: 6px;
+        border: solid white;
+        border-width: 0 2px 2px 0;
+        transform: rotate(45deg);
+      }
+
+      /* Style the label to make the entire input area clickable */
+      .input {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        padding: 10px;
+        border: 1px solid transparent;
+        transition: border-color 0.3s ease;
+      }
+
+      .input:hover {
+        border-color: #007bff;
+      }
+    </style>
+  </head>
+  <body style="margin: 0">
+    <input type="hidden" id="anPageName" name="page" value="frame-39886" />
+    <div class="container-center-horizontal">
+      <div class="frame-39886 screen">
+
+        <div class="group-39826">
+          <a href="index.html" class="group-39805">
+            <div class="group-21">
+              <div class="flex-col-2 flex-col-3">
+                <div class="rectangle-1 rectangle-3"></div>
+                <div class="flex-row flex">
+                  <div class="rectangle-2 rectangle-3"></div>
+                  <div class="rectangle-6 rectangle-3"></div>
+                </div>
+              </div>
+              <div class="flex-row flex">
+                <div class="rectangle"></div>
+                <div class="rectangle"></div>
+                <div class="rectangle"></div>
+              </div>
+            </div>
+            <img class="foresight" src="img/foresight-3.svg" alt="foresight">
+          </a>
+        </div>
+
+        <div class="onboarding-center">
+            
+          <div class="split left">
+            <div class="centered">
+
+              <a href="1.html">
+                <img class="arrow-narrow-left" src="img/arrow-narrow-left.svg" alt="arrow-narrow-left" />
+              </a>
+
+              <h1 class="text-1 valign-text-middle inter-normal-mirage-36px">Which markets are you interested in?</h1>
+              <p class="description inter-normal-fiord-16px-2">
+                Choose markets to ensure your products meet regional regulations.
+              </p>
+
+              <div class="group-39875 group">
+                <div class="input-container">
+                  <label class="input">
+                    <input type="checkbox" id="checkbox-north-america" />
+                    <div class="checkbox-base"></div>
+                    <div class="text text-mdmedium">North America</div>
+                  </label>
+                  <label class="input">
+                    <input type="checkbox" id="checkbox-europe" />
+                    <div class="checkbox-base"></div>
+                    <div class="text text-mdmedium">Europe</div>
+                  </label>
+                  <label class="input">
+                    <input type="checkbox" id="checkbox-asia" />
+                    <div class="checkbox-base"></div>
+                    <div class="text text-mdmedium">Asia</div>
+                  </label>
+                </div>
+                <div class="input-container">
+                  <label class="input">
+                    <input type="checkbox" id="checkbox-australia" />
+                    <div class="checkbox-base"></div>
+                    <div class="text text-mdmedium">Australia</div>
+                  </label>
+                  <label class="input">
+                    <input type="checkbox" id="checkbox-south-america" />
+                    <div class="checkbox-base"></div>
+                    <div class="text text-mdmedium">South America</div>
+                  </label>
+                  <label class="input">
+                    <input type="checkbox" id="checkbox-middle-east" />
+                    <div class="checkbox-base"></div>
+                    <div class="text text-mdmedium">Middle East</div>
+                  </label>
+                </div>
+              </div>
+              <a href="7.html">
+                <div class="group-39873 group">
+                  <div class="button">
+                    <div class="text-2 text-mdsemibold">Discover topics</div>
+                    <img class="arrow-narrow-right" src="img/arrow-narrow-right.svg" alt="arrow-narrow-right" />
+                  </div></div></a>
+            </div>
+          </div>
+
+          <div class="split right">
+            <div class="centered">
+
+            </div>
+          </div>
+
+        </div>
+          
+      </div>
+    </div>
+
+  </body>
+</html>

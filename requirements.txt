@@ -1,0 +1,5 @@
+Flask==2.3.2
+openai==0.27.7
+gunicorn==20.1.0
+spacy==3.6.0
+natural==0.2.0
