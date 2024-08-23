@@ -86,7 +86,7 @@ def generate_prompts():
     
     try:
         response = openai.ChatCompletion.create(
-            model="gpt-3.5-turbo",
+            model="gpt-4o",
             messages=[
                 {"role": "system", "content": "You are a helpful assistant that generates concise but complete follow-up questions. Each question must be fully formed and end with a question mark."},
                 {"role": "user", "content": prompt}
