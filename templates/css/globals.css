@@ -112,7 +112,7 @@ a:hover {
   display: flex;
   height: 100%;
   left: 0;
-  position: absolute;
+  position: fixed;
   top: 0;
   width: 280px;
 }
@@ -345,7 +345,7 @@ a:hover {
   line-height: 27px;
   margin-top: -1.00px;
   position: relative;
-  width: 478px;
+  width: 520px;
 }
 
 .frame-39641 {

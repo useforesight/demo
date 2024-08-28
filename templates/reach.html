@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <!--<meta name=description content="This site was generated with Anima. www.animaapp.com"/>-->
+    <!-- <link rel="shortcut icon" type=image/png href="https://animaproject.s3.amazonaws.com/home/favicon.png" /> -->
+    <meta name="viewport" content="width=1440, maximum-scale=1.0" />
+    <link rel="shortcut icon" type="image/png" href="https://animaproject.s3.amazonaws.com/home/favicon.png" />
+    <meta name="og:type" content="website" />
+    <meta name="twitter:card" content="photo" />
+    <link rel="stylesheet" type="text/css" href="css/desktop-3.css" />
+    <link rel="stylesheet" type="text/css" href="css/styleguide.css" />
+    <link rel="stylesheet" type="text/css" href="css/globals.css" />
+
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+
+    <style>
+      #chatHistory {
+          height: 440px;
+          overflow-y: auto;
+          border: 1px solid #ccc;
+          padding: 28px;
+          margin-bottom: 0px;
+          width: 1096px;
+          background-color: white;
+          margin-top:4px;
+          border-radius: 8px;
+          display: none;
+          margin-bottom: -12px;
+          resize: both;
+      }
+      #chatHistory .message {
+        color: var(--gray700);
+        font-family: var(--font-family-inter);
+        font-size: var(--font-size-m);
+        font-style: normal;
+        font-weight: 400;
+        line-height: 168%;
+        margin-bottom: 16px;
+      }
+      .messagebox {
+        position: relative;
+      }
+      .message strong {
+        font-weight: bold;
+      }
+      #chatHistory .message:nth-child(2n) {
+          /* Your styles here */
+          margin-bottom: 40px; /* Example: setting a different background color */
+      }
+      #chat-assisstant {
+        /* margin-top: 16px; */
+        margin-bottom: 16px;
+      }
+      #userInput {
+        height: 48px;
+        width: 800px;
+        padding: 20px;
+        font-size: 18px;
+        margin-top: 0px;
+        border: 1px solid rgba(0,0,0,0.2);
+        border-radius: 40px;
+      }
+      #userInput:focus {
+        outline: none;
+      }
+      button {
+        padding: 5px 10px;
+        position: absolute;
+        right: 6px;
+        top: 6px;
+        background-color: var(--blue-2);
+        border: none;
+        border-radius: 70px;
+        height: 36px;
+        width: 36px;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #dbe5fc;
+      }
+      .typing::after {
+          content: '▋';
+          animation: blink 1s step-start infinite;
+      }
+      .arrow-narrow-right {
+        color: blue;
+        position: absolute;
+        top: 6px;
+        right: 6px;
+      }
+      @keyframes blink {
+          50% { opacity: 0; }
+      }
+      .frame-39641 {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .frame-39896-1,
+      .frame-39896-2 {
+        width: 100%;
+      }
+
+      .qp-question {
+        display: block;
+        /* padding: 10px; */
+
+        border-radius: 5px;
+        text-decoration: none;
+        color: #333;
+        transition: background-color 0.3s;
+      }
+
+      .qp-question .text-2 {
+        font-size: 16px;
+        line-height: 1.4;
+        word-wrap: break-word;
+      }
+
+      .message p {
+            margin-bottom: 12px;
+        }
+
+        .message ul, .message ol {
+            margin-left: 20px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            list-style-type: disc;
+        }
+
+        .message li {
+            margin-bottom: 8px;
+        }
+
+        .message strong {
+            font-weight: bold;
+        }
+
+        .message em {
+            font-style: italic;
+        }
+  </style>
+  </head>
+  <body style="margin: 0;overflow-x:hidden;">
+    <input type="hidden" id="anPageName" name="page" value="desktop-3" />
+    <div class="container-center-horizontal">
+      <div class="desktop-3 screen">
+        <div class="overlap-group1">
+          <div class="main">
+
+            <div style="margin-left: 32px;">
+
+                <div class="flex-row-1" style="height: 80px;">
+                <div class="frame-container">
+                    <div class="frame-39906">
+                    <a href="legislation.html"
+                        ><div class="text-6 valign-text-middle inter-normal-mirage-16px">Legislation</div>
+                    </a>
+                    <p class="text-7 valign-text-middle">
+                        <span
+                        ><span class="span0">/</span><span class="inter-bold-mirage-16px">&nbsp;</span
+                        ><span class="span2 text-mdsemibold">&nbsp;</span
+                        ><span class="span3 text-mdmedium">REACH</span>
+                        </span>
+                    </p>
+                    </div>
+                    <div class="frame-39824">
+                    <!-- <article class="badge"><div class="text text-smmedium">BPR</div></article> -->
+                    
+                    </div>
+                </div>
+                <div class="frame-39828">
+                    <div class="actions">
+                    <div class="button">
+                        <img class="bell-plus" src="img/bell-plus.svg" alt="bell-plus" />
+                        <div class="text-1 text-smsemibold">Set reminder</div>
+                    </div>
+                    </div>
+                    <div class="actions-1 actions-3">
+                    <div class="button-1">
+                        <img class="share-07" src="img/share-07.svg" alt="share-07" />
+                        <div class="text-1 text-smsemibold">Share</div>
+                    </div>
+                    </div>
+                    <div class="actions-1 actions-3">
+                    <div class="button-1">
+                        <img class="share-07" src="img/invite.svg" alt="share-07" />
+                        <div class="text-1 text-smsemibold">Invite</div>
+                    </div>
+                    </div>
+                    <!-- <div class="button-2">
+                    <img class="check" src="img/check-1.svg" alt="check" />
+                    <div class="text-8 text-smsemibold">Accept</div>
+                    </div> -->
+                </div>
+                </div>
+            
+                <div class="frame-39873">
+                <div class="frame-39896">
+                    <div class="frame-39893">
+                    <div class="frame-39893-1">
+                        <div class="frame-39902">
+                        <div class="frame-39852">
+                            <div class="rectangle-18"></div>
+                            <p class="text-9">
+                            <span class="inter-semi-bold-mirage-20px">Summary: </span
+                            ><span class="span1"
+                                >The Stockholm Convention is updating its guidelines on managing persistent organic pollutants (POPs) and is seeking public comments on draft documents by 16 September 2024. Key areas under review include specific chemicals like UV-328, SCCPs, and PBDEs. Feedback will help finalize guidelines to protect health and the environment.</span
+                            >
+                            </p>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+
+
+                <div id="chatHistory"></div>
+
+                <div class="messagebox">
+                    <input type="text" id="userInput" placeholder="Ask a question...">
+                    <button onclick="sendMessage()"><img class="arrow-narrow-right" src="img/arrow-narrow-right-blue.svg" alt="arrow-narrow-left" />
+                    </button>
+                </div>
+
+
+                <div id="chat-assisstant">
+                    <div class="frame-39626" id="quickPromptsContainer">
+                    <div class="frame-39597">
+                        <div class="frame-39674">
+                        <img class="star-06" src="img/star-06-2.svg" alt="star-06" />
+                        <div class="heading inter-semi-bold-mirage-18px" style="font-size: 16px;">Quick insights</div>
+                        </div>
+                        <div class="frame-39641">
+                        <div class="frame-39896-1 frame-39896-5">
+                            <a href="#" class="qp-question group-39601">
+                            <div class="component-1">
+                                <p class="text-2 text-mdmedium">How can I submit feedback on the Stockholm Convention’s draft guidelines for managing persistent organic pollutants?</p>
+                            </div>
+                            </a>
+                        </div>
+                        <div class="frame-39896-1 frame-39896-5">
+                            <a href="#" class="qp-question group-39597">
+                            <div class="component-1">
+                                <div class="text-2 text-mdmedium">What are the key chemicals under review in the latest Stockholm Convention guidelines?</div>
+                            </div>
+                            </a>
+                        </div>
+                        <div class="frame-39896-2 frame-39896-5">
+                            <a href="#" class="qp-question group-39599">
+                            <div class="component-1">
+                                <p class="text-2 text-mdmedium">When is the deadline for submitting comments on the Stockholm Convention’s draft guidelines?</p>
+                            </div>
+                            </a>
+                        </div>
+                        <div class="frame-39896-2 frame-39896-5">
+                            <a href="#" class="qp-question group-39600">
+                            <div class="component-1">
+                                <p class="text-2 text-mdmedium">What are the main updates in the Stockholm Convention’s draft guidelines for POPs management?</p>
+                            </div>
+                            </a>
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+                    <div id="loadingPrompts" style="display: none;">
+                    <p>Generating new prompts...</p>
+                    </div>
+
+                    <script>
+                    function showChatHistory() {
+                        const chatHistory = document.getElementById('chatHistory');
+                        chatHistory.style.display = 'block';
+                    }
+                    
+                    function addMessage(sender, message) {
+                        showChatHistory();
+                        const chatHistory = document.getElementById('chatHistory');
+                        const messageElement = document.createElement('div');
+                        messageElement.className = 'message';
+                        
+                        if (sender === 'Question') {
+                            messageElement.innerHTML = `<strong>${sender}:</strong> ${message}`;
+                        } else {
+                            // For answers, apply the formatting
+                            const formattedMessage = formatResponse(message);
+                            messageElement.innerHTML = `<strong>${sender}:</strong> ${formattedMessage}`;
+                        }
+                        
+                        chatHistory.appendChild(messageElement);
+                        chatHistory.scrollTop = chatHistory.scrollHeight;
+                        return messageElement;
+                    }
+                    
+                    function formatResponse(text) {
+                        // Convert Markdown-style formatting to HTML
+                        text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>'); // Bold
+                        text = text.replace(/\*(.*?)\*/g, '<em>$1</em>'); // Italic
+                        
+                        // Handle numbered lists
+                        text = text.replace(/^\d+\.\s+/gm, '<li>');
+                        text = text.replace(/(<li>.*?\n)(?!<li>)/g, '$1</li>');
+                        text = text.replace(/(<li>.*?\n)+/g, '<ol>$&</ol>');
+                        
+                        // Handle bullet points
+                        text = text.replace(/^\-\s+/gm, '<li>');
+                        text = text.replace(/(<li>.*?\n)(?!<li>)/g, '$1</li>');
+                        text = text.replace(/(<li>.*?\n)+/g, '<ul>$&</ul>');
+                        
+                        // Split into paragraphs
+                        const paragraphs = text.split('\n\n');
+                        return paragraphs.map(p => `<p>${p}</p>`).join('');
+                    }
+                    
+                    function hideQuickPrompts() {
+                        document.getElementById('chat-assisstant').style.display = 'none';
+                        document.getElementById('loadingPrompts').style.display = 'block';
+                    }
+                    
+                    function showQuickPrompts() {
+                        document.getElementById('chat-assisstant').style.display = 'block';
+                        document.getElementById('loadingPrompts').style.display = 'none';
+                    }
+                    
+                    async function generateNewPrompts(question, answer) {
+                        try {
+                            const response = await fetch('/generate_prompts', {
+                                method: 'POST',
+                                headers: {
+                                    'Content-Type': 'application/json',
+                                },
+                                body: JSON.stringify({ question: question, answer: answer }),
+                            });
+
+                            if (!response.ok) {
+                                throw new Error('Failed to generate new prompts');
+                            }
+
+                            const newPrompts = await response.json();
+                            updatePromptQuestions(newPrompts);
+                        } catch (error) {
+                            console.error('Error generating new prompts:', error);
+                            handleFailedPromptGeneration();
+                        }
+                    }
+
+                    function updatePromptQuestions(newPrompts) {
+                        const promptElements = document.querySelectorAll('.qp-question .text-2');
+                        newPrompts.forEach((prompt, index) => {
+                            if (index < promptElements.length) {
+                                if (prompt && prompt.trim() !== '?' && prompt.trim() !== '') {
+                                    promptElements[index].textContent = prompt;
+                                } else {
+                                    promptElements[index].textContent = 'Unable to generate a new question. Please try again.';
+                                }
+                            }
+                        });
+                        showQuickPrompts();
+                    }
+
+                    function handleFailedPromptGeneration() {
+                        const promptElements = document.querySelectorAll('.qp-question .text-2');
+                        promptElements.forEach(element => {
+                            element.textContent = 'Unable to generate new questions. Please try again later.';
+                        });
+                        showQuickPrompts();
+                    }
+                                    
+                    async function sendMessage(message = null, retries = 3, delay = 1000) {
+                        const userInput = document.getElementById('userInput');
+                        if (!message) {
+                            message = userInput.value.trim();
+                        }
+                        if (message) {
+                            addMessage('Question', message);
+                            userInput.value = '';
+                            hideQuickPrompts();
+
+                            const responseElement = addMessage('Answer', '<span class="typing"></span>');
+
+                            for (let attempt = 0; attempt < retries; attempt++) {
+                                try {
+                                    const response = await fetch('/chat', {
+                                        method: 'POST',
+                                        headers: {
+                                            'Content-Type': 'application/json',
+                                        },
+                                        body: JSON.stringify({
+                                            message: message,
+                                            page_name: 'reach'  // Use 'reach' instead of 'reach.html'
+                                        }),
+                                    });
+
+                                    if (response.status === 429) {
+                                        throw new Error('Rate limit exceeded');
+                                    }
+
+                                    const reader = response.body.getReader();
+                                    const decoder = new TextDecoder();
+                                    let responseText = '';
+
+                                    while (true) {
+                                        const { done, value } = await reader.read();
+                                        if (done) break;
+
+                                        const chunk = decoder.decode(value);
+                                        responseText += chunk;
+                                        const formattedResponse = formatResponse(responseText);
+                                        responseElement.innerHTML = `<strong>Answer:</strong> ${formattedResponse}<span class="typing"></span>`;
+                                        chatHistory.scrollTop = chatHistory.scrollHeight;
+                                    }
+
+                                    const finalFormattedResponse = formatResponse(responseText);
+                                    responseElement.innerHTML = `<strong>Answer:</strong> ${finalFormattedResponse}`;
+
+                                    await generateNewPrompts(message, responseText);
+                                    return;
+                                } catch (error) {
+                                    console.error('Error:', error);
+                                    if (attempt === retries - 1) {
+                                        responseElement.innerHTML = `<strong>Answer:</strong> An error occurred while fetching the response. Please try again later.`;
+                                        showQuickPrompts();
+                                    } else {
+                                        responseElement.innerHTML = `<strong>Answer:</strong> Rate limit exceeded. Retrying in ${delay / 1000} seconds...`;
+                                        await new Promise(resolve => setTimeout(resolve, delay));
+                                        delay *= 2;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    
+                    document.getElementById('userInput').addEventListener('keypress', function (e) {
+                        if (e.key === 'Enter') {
+                            sendMessage();
+                        }
+                    });
+                    
+                    document.querySelectorAll('.qp-question').forEach(element => {
+                        element.addEventListener('click', function(e) {
+                            e.preventDefault();
+                            const question = this.querySelector('.text-2').textContent;
+                            sendMessage(question);
+                        });
+                    });
+                    
+                    // Initialize quick prompts
+                    showQuickPrompts();
+                    </script>
+                    
+                </div>
+
+
+
+              <div class="space-y-6 mb-24" style="width:100%;">
+
+
+
+                <!-- <div class="table">
+                  <div class="content-1 content-3">
+                      <div class="column" id="date-column">
+                          <div class="table-header-cell">
+                              <div class="table-header table-1">
+                                  <div class="text-1 text-smmedium">Date</div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="column-1 column-4 inter-normal-mirage-16px" id="alert-column">
+                          <div class="table-header-cell">
+                              <div class="table-header table-1">
+                                  <div class="text-1 text-smmedium">Alert</div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="column-2 column-4" id="stage-column">
+                          <div class="table-header-cell">
+                              <div class="table-header table-1">
+                                  <div class="text-1 text-smmedium">Stage</div>
+                              </div>
+                          </div>
+                      </div>
+                      <div class="column-3 column-4" id="source-column">
+                          <div class="table-header-cell">
+                              <div class="table-header table-1">
+                                  <div class="text-1 text-smmedium">Source</div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+                </div> -->
+                
+
+                <span class="inter-semi-bold-mirage-20px">Latest alerts</span>
+
+                 <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex justify-between items-center mb-2">
+                       <h2 class="text-lg font-medium text-gray-800">Asbestos Risks and Mesothelioma: New Report Highlights Decline in Deaths</h2>
+                       <span class="text-gray-500 text-sm">23 Aug 2024</span>
+                    </div>
+                    <p class="text-gray-700 mb-4 text-sm">The review period for these authorisations are set to expire on 31 December 2027. Learn with Foresight.</p>
+                    <div class="flex flex-wrap items-center mb-4 mt-4"><span class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded uppercase">reach</span></div>
+                    <div class="flex items-center mb-4 mt-4"><img src="img/favicon--1--1.png" alt="HSE" class="w-5 h-5 mr-2"><span class="text-gray-600 text-sm">HSE</span></div>
+                    <div class="flex justify-between items-center"><span class="text-gray-600 text-sm">3 products at risk</span><a href="asbestos-risks-and-mesothelioma-new-report-highlights-decline-in-deaths.html" class="text-blue-600 hover:underline">View alert</a></div>
+                 </div>
+                 <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex justify-between items-center mb-2">
+                       <h2 class="text-lg font-medium text-gray-800">New Regulatory Measures Proposed for Aziridine Compounds</h2>
+                       <span class="text-gray-500 text-sm">23 Aug 2024</span>
+                    </div>
+                    <p class="text-gray-700 mb-4 text-sm">The communication lists several new standards replacing older versions, thereby setting stricter benchmarks for nickel release. Learn with Foresight.</p>
+                    <div class="flex flex-wrap items-center mb-4 mt-4"><span class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded uppercase">reach</span></div>
+                    <div class="flex items-center mb-4 mt-4"><img src="img/favicon-2.svg" alt="ECHA" class="w-5 h-5 mr-2"><span class="text-gray-600 text-sm">ECHA</span></div>
+                    <div class="flex justify-between items-center"><span class="text-gray-600 text-sm">1 products at risk</span><a href="new-regulatory-measures-proposed-for-aziridine-compounds.html" class="text-blue-600 hover:underline">View alert</a></div>
+                 </div>
+                 <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex justify-between items-center mb-2">
+                       <h2 class="text-lg font-medium text-gray-800">Barium Chromate Under Scrutiny as REACH SVHC</h2>
+                       <span class="text-gray-500 text-sm">21 Aug 2024</span>
+                    </div>
+                    <p class="text-gray-700 mb-4 text-sm">The Board of Appeal found in favour of BASF, concluding that the ECHA had breached its duty to examine each case individually. Use Foresight.</p>
+                    <div class="flex flex-wrap items-center mb-4 mt-4"><span class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded uppercase">reach</span></div>
+                    <div class="flex items-center mb-4 mt-4"><img src="img/favicon-2.svg" alt="ECHA" class="w-5 h-5 mr-2"><span class="text-gray-600 text-sm">ECHA</span></div>
+                    <div class="flex justify-between items-center"><span class="text-gray-600 text-sm">3 products at risk</span><a href="barium-chromate-under-scrutiny-as-reach-svhc.html" class="text-blue-600 hover:underline">View alert</a></div>
+                 </div>
+                 <div class="bg-white p-6 rounded-lg shadow-md">
+                    <div class="flex justify-between items-center mb-2">
+                       <h2 class="text-lg font-medium text-gray-800">HSE Invites Companies to Submit Export Notifications for PIC Chemicals for 2025</h2>
+                       <span class="text-gray-500 text-sm">21 Aug 2024</span>
+                    </div>
+                    <p class="text-gray-700 mb-4 text-sm">The report indicated that 53 valid dossiers for novel substances were submitted, with compliance checks completed on 29 (55%) by the end of the year. Use Foresight.</p>
+                    <div class="flex flex-wrap items-center mb-4 mt-4"><span class="bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded uppercase">reach-gb</span></div>
+                    <div class="flex items-center mb-4 mt-4"><img src="img/favicon--1--1.png" alt="HSE" class="w-5 h-5 mr-2"><span class="text-gray-600 text-sm">HSE</span></div>
+                    <div class="flex justify-between items-center"><span class="text-gray-600 text-sm">5 products at risk</span><a href="hse-invites-companies-to-submit-export-notifications-for-pic-chemicals-for-2025.html" class="text-blue-600 hover:underline">View alert</a></div>
+                 </div>
+
+
+                 <div style="margin-top:4rem;"><span class="inter-semi-bold-mirage-20px">Legislation overview</span></div>
+
+              <div class="group-39837" style="margin-bottom:6rem;height:100%;">
+                <div class="frame-39858">
+                    <div class="table">
+                        <!-- <h1 class="text-2xl font-bold mb-4">Legislation Overview</h1> -->
+                        
+                        <div class="label-and-text">
+                            <div class="label text-smmedium">LEGISLATION NAME</div>
+                            <div class="text-and-icon">
+                                <div class="text-3 inter-normal-oxford-blue-16px">REACH Regulation (EC) No 1907/2006</div>
+                            </div>
+                        </div>
+            
+                        <div class="label-and-text-1 label-and-text-6">
+                            <div class="label text-smmedium">APPLICABLE TO</div>
+                            <div class="text-and-icon">
+                                <article class="badge-1">
+                                    <div class="text-4 inter-normal-oxford-blue-14px">European Economic Area</div>
+                                </article>
+                                <article class="badge-1">
+                                    <div class="text-4 inter-normal-oxford-blue-14px">Northern Ireland</div>
+                                </article>
+                            </div>
+                        </div>
+            
+                        <div class="label-and-text">
+                            <div class="label text-smmedium">PURPOSE</div>
+                            <div class="text-and-icon">
+                                <p class="text-3 inter-normal-oxford-blue-16px">High protection level from chemical risks, enhance innovation, competitiveness.</p>
+                            </div>
+                        </div>
+            
+                        <div class="label-and-text">
+                            <div class="label text-smmedium">SCOPE</div>
+                            <div class="text-and-icon">
+                                <p class="text-3 inter-normal-oxford-blue-16px">Production, use of chemicals and their impacts on health, environment.</p>
+                            </div>
+                        </div>
+            
+                        <div class="label-and-text">
+                            <div class="label text-smmedium">KEY REQUIREMENTS</div>
+                            <div class="text-and-icon">
+                                <p class="text-3 inter-normal-oxford-blue-16px">Registration, evaluation, authorization, restriction of chemicals.</p>
+                            </div>
+                        </div>
+            
+                        <div class="label-and-text">
+                            <div class="label text-smmedium">PENALTIES</div>
+                            <div class="text-and-icon">
+                                <p class="text-3 inter-normal-oxford-blue-16px">Effective, proportionate, dissuasive penalties by Member States</p>
+                            </div>
+                        </div>
+            
+                        <div class="label-and-text">
+                            <div class="label text-smmedium">EXEMPTIONS</div>
+                            <div class="text-and-icon">
+                                <p class="text-3 inter-normal-oxford-blue-16px">Certain exemptions for types of substances</p>
+                            </div>
+                        </div>
+            
+                        <div class="label-and-text">
+                            <div class="label text-smmedium">GUIDANCE</div>
+                            <div class="text-and-icon">
+                                <p class="text-3 inter-normal-oxford-blue-16px">ECHA provides extensive guidance documents, tools, and databases to support compliance with REACH requirements.</p>
+                            </div>
+                        </div>
+            
+                        <div class="label-and-text-5 label-and-text-6">
+                            <div class="label-2 label-3 text-smmedium">Source</div>
+                            <div class="frame-39857">
+                                <img class="favicon-2" src="img/stockholm.png" alt="favicon 2">
+                                <a href="https://echa.europa.eu/information-on-chemicals/evaluation/community-rolling-action-plan/corap-table/-/dislist/details/0b0236e1807e7192" target="_blank">
+                                    <div class="text-12 text-mdmedium">Stockholm Convention: Joint Toolkit and expert roster</div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+
+          </div></div>
+
+          
+          <div class="sidebar-navigation">
+            <div class="content-2 content-3">
+              <div class="nav">
+                <div class="navigation">
+                  <div class="dropdown">
+                    <div class="button-4">
+                      <div class="group-39831">
+                        <div class="image-65"><img src="img/rina.png" width="20"></div>
+                        <div class="text-4 inter-semi-bold-oxford-blue-15px">Avery Dennison</div>
+                      </div>
+                      <img class="chevron-down" src="img/chevron-down.svg" alt="chevron-down" />
+                    </div>
+                  </div>
+                  <div class="group-39832">
+                    <div class="flex-col flex">
+                      <div class="frame-39896-4 frame-39896-5">
+                        <a href="logged-in.html">
+                          <div class="nav-item-base">
+                            <div class="content">
+                              <img
+                                class="bar-chart-square-02"
+                                src="img/bar-chart-square-02.svg"
+                                alt="bar-chart-square-02"
+                              />
+                              <div class="text-5 text-mdsemibold">Home</div>
+                            </div>
+                          </div>
+                        </a>
+
+                        <a href="alerts.html">
+                          <div class="nav-item-base-2 nav-item-base-4">
+                            <div class="content">
+                              <img class="bell-02" src="img/bell-02.svg" alt="bell-02" />
+                              <div class="text-5 text-mdsemibold">My Alerts</div>
+                            </div>
+                          </div></a
+                        >
+
+                        <a href="assistant.html">
+                          <div class="nav-item-base-2 nav-item-base-5">
+                            <div class="content">
+                              <img class="bookmark-check" src="img/message-dots-circle.svg" alt="bookmark-check" />
+                              <div class="text text-mdsemibold">Assistant</div>
+                            </div>
+                          </div>
+                          </a>
+
+                          <div class="nav-item-base">
+                            <div class="content">
+                              <img class="bookmark-check" src="img/bookmark-check.svg" alt="bookmark-check" />
+                              <div class="text-5 text-mdsemibold">Subscriptions</div>
+                            </div>
+                          </div>
+
+                        <a href="calendar.html">
+                          <div class="nav-item-base-4 nav-item-base-5">
+                            <div class="content">
+                              <img class="bookmark-check" src="img/calendar.svg" alt="bookmark-check" />
+                              <div class="text text-mdsemibold">Calendar</div>
+                            </div>
+                          </div>
+                        </a>
+
+                      </div>
+                      <div class="nav-item-base-1 nav-item-base-4">
+                        <div class="text-14 inter-normal-mirage-14px">MONITORING</div>
+                      </div>
+                      <div class="nav-item-base-3 nav-item-base-4">
+                        <div class="content">
+                          <img class="scales-02" src="img/scales-02.svg" alt="scales-02" />
+                          <div class="text-5 text-mdsemibold">Legislation</div>
+                        </div>
+                      </div>
+                      <div class="nav-item-base-2 nav-item-base-4">
+                        <div class="content">
+                          <img class="cube-01" src="img/cube-01.svg" alt="cube-01" />
+                          <div class="text-5 text-mdsemibold">Products</div>
+                        </div>
+                      </div>
+                      <div class="nav-item-base-2 nav-item-base-4">
+                        <div class="content">
+                          <img class="beaker-01" src="img/beaker-01.svg" alt="beaker-01" />
+                          <div class="text-5 text-mdsemibold">Substances</div>
+                        </div>
+                      </div>
+                      <div class="group-39833">
+                        <div class="nav-item-base-1 nav-item-base-4">
+                          <div class="text-15 inter-normal-mirage-14px">MANAGE</div>
+                        </div>
+                        <div class="nav-item-base-2 nav-item-base-4">
+                          <div class="content">
+                            <img class="folder" src="img/folder.svg" alt="folder" />
+                            <div class="text-5 text-mdsemibold">Documents</div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <footer class="footer">
+                <div class="account">
+                  <div class="avatar-label-group">
+                    <div class="group-39807">
+                      <div class="overlap-group"><div class="text-16 valign-text-middle text-smmedium">AL</div></div>
+                    </div>
+                    <div class="text-and-supporting-text-1">
+                      <div class="text-17 text-smsemibold">Lauren Kobetitsch</div>
+                    </div>
+                  </div>
+                  <div class="button-5"><img class="log-out-01" src="img/log-out-01.svg" alt="log-out-01" /></div>
+                </div>
+              </footer>
+            </div>
+          </div>
+          <div class="group-39826">
+            <div class="group-39805">
+              <div class="group-21">
+                <div class="flex-col-2 flex-col-3">
+                  <div class="rectangle-1 rectangle-3"></div>
+                  <div class="flex-row flex">
+                    <div class="rectangle-2 rectangle-3"></div>
+                    <div class="rectangle-6 rectangle-3"></div>
+                  </div>
+                </div>
+                <div class="flex-row flex">
+                  <div class="rectangle"></div>
+                  <div class="rectangle"></div>
+                  <div class="rectangle"></div>
+                </div>
+              </div>
+              <img class="foresight" src="img/foresight-3.svg" alt="foresight">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

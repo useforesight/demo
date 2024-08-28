@@ -16,6 +16,25 @@
     <link rel="stylesheet" type="text/css" href="css/globals.css" />
 
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+    <style>
+        .card-shadow {
+            box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+        }
+        .legislation-card {
+            transition: transform 0.2s;
+        }
+        .legislation-card:hover {
+            transform: translateY(-5px);
+        }
+        .legislation-card a {
+            text-decoration: none;
+            color: inherit;
+        }
+        .legislation-card a:hover {
+            text-decoration: none;
+        }
+    </style>
   </head>
   <body>
     <input type="hidden" id="anPageName" name="page" value="desktop-4" />
@@ -23,7 +42,7 @@
       <div class="desktop-4 screen">
         <div class="overlap-group2">
           <div class="main desktop-1">
-            <h1 class="text-1 valign-text-middle inter-semi-bold-mirage-24px" style="color:var(--fiord);">My Alerts</h1>
+            <h1 class="text-1 valign-text-middle inter-semi-bold-mirage-24px" style="color:var(--fiord);">Legislation</h1>
             
             <p class="the-latest-updates-o inter-normal-fiord-14px">
               The latest updates on regulatory changes that may impact your products and manufacturing processes.
@@ -60,45 +79,111 @@
   </div> -->
 </div>
 
-            <!-- Alerts Cards -->
-            <div class="space-y-6 mb-24" style="width:100%;">
+<div class="grid grid-cols-3 gap-4" id="legislationCards" style="width:100%;">
+    <!-- Legislation cards will be dynamically inserted here -->
+</div>
+    </div>
 
+    <script>
+        
+        // Sample data for legislation cards
+        const legislationData = [
+            { title: "REACH", alerts: 5, region: "European Union", comments: 0, users: 3 },
+            { title: "CAA", alerts: 5, region: "United States", comments: 2, users: 2 },
+            { title: "CEPA", alerts: 7, region: "Canada", comments: 1, users: 1 },
+            { title: "CLP", alerts: 7, region: "European Union", comments: 0, users: 2 },
+            { title: "FIFRA", alerts: 5, region: "United States", comments: 3, users: 3 },
+            { title: "POPs", alerts: 5, region: "Global (Stockholm Convention)", comments: 1, users: 1 },
+            { title: "PPP", alerts: 7, region: "European Union", comments: 0, users: 2 },
+            { title: "Prop65", alerts: 5, region: "CA, United States", comments: 2, users: 2 },
+            { title: "REACH", alerts: 7, region: "European Union", comments: 1, users: 3 },
+            { title: "TSCA", alerts: 7, region: "United States", comments: 0, users: 1 },
+        ];
 
+        // Function to get color scheme based on region
+        function getColorScheme(region) {
+            const colorSchemes = {
+                "Europe": "bg-blue-100 text-blue-800",
+                "European Union": "bg-blue-100 text-blue-800",
+                "United States": "bg-red-100 text-red-800",
+                "Canada": "bg-green-100 text-green-800",
+                "Global (Stockholm Convention)": "bg-purple-100 text-purple-800",
+                "CA, United States": "bg-yellow-100 text-yellow-800"
+            };
+            return colorSchemes[region] || "bg-gray-100 text-gray-800"; // Default color scheme
+        }
 
-              <!-- <div class="table">
-                <div class="content-1 content-3">
-                    <div class="column" id="date-column">
-                        <div class="table-header-cell">
-                            <div class="table-header table-1">
-                                <div class="text-1 text-smmedium">Date</div>
-                            </div>
-                        </div>
+        // Function to create a legislation card
+        function createLegislationCard(title, alerts, region, comments, users) {
+            const card = document.createElement('div');
+            card.className = 'bg-white p-4 rounded-lg card-shadow';
+            const colorScheme = getColorScheme(region);
+            card.innerHTML = `
+                <h3 class="text-xl font-semibold mb-2">${title}</h3>
+                <p class="text-gray-600 mb-2">${alerts} alerts</p>
+                <span class="inline-block px-2 py-1 mb-4 text-sm rounded-full ${colorScheme}">${region}</span>
+                <div class="flex items-center justify-between text-gray-500 text-sm">
+                    <div class="flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+                        </svg>
+                        ${comments} comments
                     </div>
-                    <div class="column-1 column-4 inter-normal-mirage-16px" id="alert-column">
-                        <div class="table-header-cell">
-                            <div class="table-header table-1">
-                                <div class="text-1 text-smmedium">Alert</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="column-2 column-4" id="stage-column">
-                        <div class="table-header-cell">
-                            <div class="table-header table-1">
-                                <div class="text-1 text-smmedium">Stage</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="column-3 column-4" id="source-column">
-                        <div class="table-header-cell">
-                            <div class="table-header table-1">
-                                <div class="text-1 text-smmedium">Source</div>
-                            </div>
-                        </div>
+                    <div class="flex items-center">
+                        ${Array(users).fill().map(() => `
+                            <div class="w-6 h-6 rounded-full bg-gray-300 -ml-2 border-2 border-white"></div>
+                        `).join('')}
                     </div>
                 </div>
-              </div> -->
-              
-            </div>
+            `;
+            return card;
+        }
+
+        // Updated function to create a legislation card
+        function createLegislationCard(title, alerts, region, comments, users) {
+            const card = document.createElement('div');
+            card.className = 'bg-white p-4 rounded-lg card-shadow legislation-card';
+            const colorScheme = getColorScheme(region);
+            
+            const cardContent = `
+                <h3 class="text-xl font-semibold mb-2">${title}</h3>
+                <p class="text-gray-600 mb-2">${alerts} alerts</p>
+                <span class="inline-block px-2 py-1 mb-4 text-sm rounded-full ${colorScheme}">${region}</span>
+                <div class="flex items-center justify-between text-gray-500 text-sm">
+                    <div class="flex items-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-1" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z" />
+                        </svg>
+                        ${comments} comments
+                    </div>
+                    <div class="flex items-center">
+                        ${Array(users).fill().map(() => `
+                            <div class="w-6 h-6 rounded-full bg-gray-300 -ml-2 border-2 border-white"></div>
+                        `).join('')}
+                    </div>
+                </div>
+            `;
+
+            if (title === "REACH") {
+                const link = document.createElement('a');
+                link.href = "reach.html";
+                link.className = 'block h-full';
+                link.innerHTML = cardContent;
+                card.appendChild(link);
+            } else {
+                card.innerHTML = cardContent;
+            }
+
+            return card;
+        }
+
+        // Populate legislation cards
+        const cardsContainer = document.getElementById('legislationCards');
+        legislationData.forEach(data => {
+            const card = createLegislationCard(data.title, data.alerts, data.region, data.comments, data.users);
+            cardsContainer.appendChild(card);
+        });
+    </script>
 
           </div>
 
@@ -140,7 +225,7 @@
                           </div></a
                         >
                         <a href="assistant.html">
-                        <div class="nav-item-base-2 nav-item-base-5">
+                        <div class="nav-item-base-3 nav-item-base-5">
                           <div class="content">
                             <img class="bookmark-check" src="img/message-dots-circle.svg" alt="bookmark-check" />
                             <div class="text text-mdsemibold">Assistant</div>
@@ -166,7 +251,7 @@
                       </div>
                       <div class="nav-item-base"><div class="text-5 inter-normal-mirage-14px">MONITORING</div></div>
                       <a href="legislation.html">
-                        <div class="nav-item-base-1 nav-item-base-5">
+                        <div class="nav-item-base-2 nav-item-base-5">
                           <div class="content">
                             <img class="scales-02" src="img/scales-02-5.svg" alt="scales-02" />
                             <div class="text text-mdsemibold">Legislation</div>
@@ -243,159 +328,16 @@
     <div id="overlay-frame-39881" class="overlay-base">
       <div class="frame-39881 screen">
         <div class="frame-39881-1">
-          <a href="javascript:HideOverlay('frame-39881', 'animate-disappear');" class="align-self-flex-end"
-            ><img class="x-close" src="img/x-close.svg" alt="x-close" />
-          </a>
-          <h1 class="text inter-normal-mirage-36px">Let’s add your product data</h1>
-          <p class="add-your-product-dat inter-normal-fiord-16px-2">
-            Add your product data to get the latest alerts on regulatory changes that may impact your products and
-            manufacturing processes.
-          </p>
-          <a href="frame-39882.html">
-            <div class="group-39860">
-              <div class="button">
-                <div class="text-1 text-mdsemibold">Add product data</div>
-                <img class="arrow-narrow-right" src="img/arrow-narrow-right.svg" alt="arrow-narrow-right" />
-              </div></div
-          ></a>
+
+            
         </div>
       </div>
     </div>
 
 
-    <script>
-      const sheetId = '1amPQjJZdYZmeGOwm8eih0crWT0hflLr4lI1woofwRJM'; // Google Sheets ID
-      const apiKey = 'AIzaSyDkPYfWXv71q1eWnNMWPahaT4e7Fcx5nTc'; // Your API key
-      const range = 'List!A2:I'; // Adjust the range according to your sheet structure
-    
-      // Define the mapping between sources and their corresponding image paths
-      const sourceImageMapping = {
-          'European Commission': 'img/frame-39904.svg',
-          'ECHA': 'img/favicon-2.svg',
-          'EUR-Lex': 'img/eurlex.svg',
-          'HSE': 'img/favicon--1--1.png',
-          'Gov.uk': 'img/gov.svg',
-          'Federal Register': 'img/federalregister.svg',
-          'Regulations.gov': 'img/regulations.png',
-          'Stockholm Convention': 'img/stockholm.png'
-          // Add more mappings as necessary
-      };
-    
-      const url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${range}?key=${apiKey}`;
-      console.log('Fetching data from URL:', url);
-    
-      fetch(url)
-          .then(response => {
-              console.log('Response status:', response.status);
-              if (!response.ok) {
-                  throw new Error(`HTTP error! status: ${response.status}`);
-              }
-              return response.json();
-          })
-          .then(data => {
-              console.log('Data received:', data);
-              if (!data.values) {
-                  throw new Error("No data found in the response");
-              }
-              const rows = data.values;
-              console.log('Rows:', rows);
-    
-              const alertsContainer = document.querySelector('.space-y-6');
-    
-              rows.forEach((row, index) => {
-                  console.log(`Processing row ${index + 1}:`, row);
-    
-                  // Create the alert card container
-                  const alertCard = document.createElement('div');
-                  alertCard.classList.add('bg-white', 'p-6', 'rounded-lg', 'shadow-md');
-    
-                  // Create the title and date section
-                  const titleDateDiv = document.createElement('div');
-                  titleDateDiv.classList.add('flex', 'justify-between', 'items-center', 'mb-2');
-                  
-                  const title = document.createElement('h2');
-                  title.classList.add('text-lg', 'font-medium', 'text-gray-800');
-                  title.textContent = row[1]; // Assuming title is in column B
-    
-                  const date = document.createElement('span');
-                  date.classList.add('text-gray-500', 'text-sm');
-                  date.textContent = row[0]; // Assuming date is in column A
-    
-                  titleDateDiv.appendChild(title);
-                  titleDateDiv.appendChild(date);
-                  alertCard.appendChild(titleDateDiv);
-    
-                  // Create the description
-                  const description = document.createElement('p');
-                  description.classList.add('text-gray-700', 'mb-4', 'text-sm');
 
-                  // Log the description to the console for debugging
-                  console.log(`Description for row ${index + 1}:`, row[8]);
 
-                  // Use the correct index (7) to fetch the description from column H
-                  description.textContent = row[8] || 'No description available'; 
-
-                  // Append the description to the alert card
-                  alertCard.appendChild(description);
-    
-                  // Create the tags section
-                  const tagsDiv = document.createElement('div');
-                  tagsDiv.classList.add('flex', 'flex-wrap', 'items-center', 'mb-4', 'mt-4');
-    
-                  // Assuming tags are stored in a single column (e.g., column G) as a comma-separated string
-                  const tags = row[6] ? row[6].split(',') : [];
-                  tags.forEach(tag => {
-                      const tagSpan = document.createElement('span');
-                      tagSpan.classList.add('bg-blue-100', 'text-blue-800', 'text-xs', 'font-semibold', 'mr-2', 'px-2.5', 'py-0.5', 'rounded','uppercase');
-                      tagSpan.textContent = tag.trim();
-                      tagsDiv.appendChild(tagSpan);
-                  });
-    
-                  alertCard.appendChild(tagsDiv);
-    
-                  // Create the source section
-                  const sourceDiv = document.createElement('div');
-                  sourceDiv.classList.add('flex', 'items-center', 'mb-4', 'mt-4');
-    
-                  const imgElement = document.createElement('img');
-                  imgElement.src = sourceImageMapping[row[3]] || 'img/default-image.svg'; // Assuming the source is in column D
-                  imgElement.alt = row[3]; // Source name
-                  imgElement.classList.add('w-5', 'h-5', 'mr-2');
-    
-                  const sourceText = document.createElement('span');
-                  sourceText.classList.add('text-gray-600', 'text-sm');
-                  sourceText.textContent = `${row[3]}`; // Assuming the source name is in column D
-    
-                  sourceDiv.appendChild(imgElement);
-                  sourceDiv.appendChild(sourceText);
-                  alertCard.appendChild(sourceDiv);
-    
-                  // Create the products at risk and link section
-                  const productsLinkDiv = document.createElement('div');
-                  productsLinkDiv.classList.add('flex', 'justify-between', 'items-center');
-    
-                  const productsAtRisk = document.createElement('span');
-                  productsAtRisk.classList.add('text-gray-600', 'text-sm');
-                  productsAtRisk.textContent = `${row[7]} products at risk`; // Assuming the number of products is in column E
-    
-                  const viewLink = document.createElement('a');
-                  const slug = row[4] || ''; // Assuming the slug is in column E (index 4)
-                  viewLink.href = slug ? `${slug}.html` : '#';
-                  viewLink.classList.add('text-blue-600', 'hover:underline');
-                  viewLink.textContent = 'View alert';
-    
-                  productsLinkDiv.appendChild(productsAtRisk);
-                  productsLinkDiv.appendChild(viewLink);
-                  alertCard.appendChild(productsLinkDiv);
-    
-                  // Append the alert card to the container
-                  alertsContainer.appendChild(alertCard);
-              });
-          })
-          .catch(error => {
-              console.error('Error fetching data:', error);
-          });
-    </script>
+                 
 
   </body>
 </html>

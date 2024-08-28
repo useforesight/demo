@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <!--<meta name=description content="This site was generated with Anima. www.animaapp.com"/>-->
+    <!-- <link rel="shortcut icon" type=image/png href="https://animaproject.s3.amazonaws.com/home/favicon.png" /> -->
+    <meta name="viewport" content="width=1440, maximum-scale=1.0" />
+    <link rel="shortcut icon" type="image/png" href="https://animaproject.s3.amazonaws.com/home/favicon.png" />
+    <meta name="og:type" content="website" />
+    <meta name="twitter:card" content="photo" />
+    <link rel="stylesheet" type="text/css" href="css/frame-39881.css" />
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" type="text/css" href="css/styleguide.css" />
+    <link rel="stylesheet" type="text/css" href="css/globals.css" />
+
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+    <style>
+      #chatHistory {
+          height: 560px;
+          overflow-y: auto;
+          border: 1px solid #ccc;
+          padding: 28px;
+          margin-bottom: 24px;
+          width: 100%;
+          background-color: white;
+          margin-top:4px;
+          border-radius: 8px;
+          display: none;
+          resize: both;
+          right:0;
+          position: relative;
+      }
+      #chatHistory .message {
+        color: var(--gray700);
+        font-family: var(--font-family-inter);
+        font-size: var(--font-size-m);
+        font-style: normal;
+        font-weight: 400;
+        line-height: 168%;
+        margin-bottom: 16px;
+      }
+      .messagebox {
+    position: fixed;
+    width: calc(100% - 280px); /* Adjust width to account for the sidebar */
+    left: 280px; /* Align the message box with the main content area */
+    bottom: 0; /* Fix the message box to the bottom of the viewport */
+    background-color: white; /* Add a background color to match the input box */
+    padding: 16px; /* Add padding to give some space around the input box */
+    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.1); /* Optional: add a shadow for a subtle effect */
+    z-index: 1000; /* Ensure it appears above other elements */
+    box-sizing: border-box; /* Ensure padding is included in the element's width and height */
+}
+
+#userInput {
+    height: 48px;
+    width: calc(100% - 2px); /* Adjust width to account for padding and button */
+    padding: 10px 20px; /* Adjust padding for better fit */
+    font-size: 18px;
+    margin-top: 0px;
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 40px;
+    box-sizing: border-box; /* Ensure padding is included in the input's width */
+}
+      .message strong {
+        font-weight: bold;
+      }
+      #chatHistory .message:nth-child(2n) {
+          /* Your styles here */
+          margin-bottom: 40px; /* Example: setting a different background color */
+      }
+      #chat-assisstant {
+        /* margin-top: 16px; */
+        margin-bottom: 16px;
+        /* position: relative;
+        height: 100%; */
+      }
+      #userInput:focus {
+        outline: none;
+      }
+      button {
+        padding: 5px 10px;
+        position: absolute;
+        right: 26px;
+        top: 22px;
+        background-color: var(--blue-2);
+        border: none;
+        border-radius: 70px;
+        height: 36px;
+        width: 36px;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #dbe5fc;
+      }
+      .typing::after {
+          content: '▋';
+          animation: blink 1s step-start infinite;
+      }
+      .arrow-narrow-right {
+        color: blue;
+        position: absolute;
+        top: 6px;
+        right: 6px;
+      }
+      @keyframes blink {
+          50% { opacity: 0; }
+      }
+      .frame-39641 {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .frame-39896-1,
+      .frame-39896-2 {
+        width: 100%;
+      }
+
+      .qp-question {
+        display: block;
+        /* padding: 10px; */
+
+        border-radius: 5px;
+        text-decoration: none;
+        color: #333;
+        transition: background-color 0.3s;
+        flex: 1;
+      }
+
+      .qp-question .text-2 {
+        font-size: 16px;
+        line-height: 1.4;
+        word-wrap: break-word;
+      }
+
+      .message p {
+            margin-bottom: 12px;
+        }
+
+        .message ul, .message ol {
+            margin-left: 20px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            list-style-type: disc;
+        }
+
+        .message li {
+            margin-bottom: 8px;
+        }
+
+        .message strong {
+            font-weight: bold;
+        }
+
+        .message em {
+            font-style: italic;
+        }
+
+        #assistant {
+          padding-left: 32px;
+          padding-right: 32px;
+          width: 100%;
+          height: 100%;
+        }
+
+        .chat-question {
+          background: white;
+        }
+        .chat-question .component-1 {
+          background: white;
+          border-radius: 8px;
+          border-color: var(--iron);
+          box-shadow: 0px 1px 2px #1018280f , 0px 1px 3px #1018281a;
+          padding: 16px 20px;
+        }
+        .desktop-4 .text-2 {
+          min-height: auto;
+        }
+
+        #chatHistory {
+          height: 100%;
+          bottom: 110px;
+          top: 0;
+          padding-bottom: 120px;
+        }
+
+  </style>
+
+  </head>
+  <body>
+    <input type="hidden" id="anPageName" name="page" value="desktop-4" />
+    <div class="container-center-horizontal">
+      <div class="desktop-4 screen">
+        <div class="overlap-group2">
+          <div class="main">
+            <!-- <h1 class="text-1 valign-text-middle inter-semi-bold-mirage-24px">Welcome, Anthony!</h1> -->
+            <div id="assistant">
+
+              <div id="chatHistory"></div>
+
+              <div id="chat-assisstant">
+
+                <div id="suggestions">
+                  <div class="" style="margin-bottom:12px;text-align: center;margin-top:12rem;">
+                    <!-- <img class="star-06" src="img/star-06-2.svg" alt="star-06" /> -->
+                    <div class="heading inter-semi-bold-mirage-18px" style="font-size: 16px;width:auto;">How can I help you today? Ask anything or use my suggestions…</div>
+                  </div>
+
+                  <div class="p-6">
+                    <h2 class="text-gray-600 text-sm font-normal mb-4">Suggestions</h2>
+                    <div class="flex space-x-4">
+                        <!-- Suggestion Card 1 -->
+                        <a href="#" class="qp-question">
+                        <div class="bg-white shadow rounded-lg p-6 cursor-pointer hover:bg-gray-50 transition">
+                            <p class="text-gray-800 text-base font-normal qp-text">
+                                Draft an email to my manager than summarises the recent policy updates on chromates
+                            </p>
+                        </div>
+                        </a>
+                
+                        <!-- Suggestion Card 2 -->
+                        <a href="#" class="qp-question">
+                          <div class="bg-white shadow rounded-lg p-6 cursor-pointer hover:bg-gray-50 transition">
+                              <p class="text-gray-800 text-base font-normal qp-text">
+                                Create a calendar reminder for the chromates REACH restriction public consultation deadline.
+                              </p>
+                          </div>
+                        </a>
+                
+                        <!-- Suggestion Card 3 -->
+                        <a href="#" class="qp-question">
+                          <div class="bg-white shadow rounded-lg p-6 cursor-pointer hover:bg-gray-50 transition">
+                              <p class="text-gray-800 text-base font-normal qp-text">
+                                Draft an email for trade association members alerting them to the SVHC intentions for barium chromate. Highlight some potential uses based on the REACH registration data.
+                              </p>
+                          </div>
+                          </a>
+                    </div>
+                </div>
+              </div>
+
+                <div class="frame-39626" id="quickPromptsContainer">
+                  <div class="frame-39597">
+
+                    <div class="frame-39641">
+
+                    </div>
+                  </div>
+                </div>
+                <div id="loadingPrompts" style="display: none;">
+                  <p style="font-family:inter;"></p>
+                </div>
+
+                <div class="messagebox">
+                  <input type="text" id="userInput" placeholder="Ask a question...">
+                  <button onclick="sendMessage()"><img class="arrow-narrow-right" src="img/arrow-narrow-right-blue.svg" alt="arrow-narrow-left" />
+                  </button>
+                </div>
+  
+
+                <script>
+                  function showChatHistory() {
+                      const chatHistory = document.getElementById('chatHistory');
+                      chatHistory.style.display = 'block';
+                  }
+                  
+                  function addMessage(sender, message) {
+                      showChatHistory();
+                      const chatHistory = document.getElementById('chatHistory');
+                      const messageElement = document.createElement('div');
+                      messageElement.className = 'message';
+                      
+                      if (sender === 'Question') {
+                          messageElement.innerHTML = `<strong>${sender}:</strong> ${message}`;
+                      } else {
+                          // For answers, apply the formatting
+                          const formattedMessage = formatResponse(message);
+                          messageElement.innerHTML = `<strong>${sender}:</strong> ${formattedMessage}`;
+                      }
+                      
+                      chatHistory.appendChild(messageElement);
+                      chatHistory.scrollTop = chatHistory.scrollHeight;
+                      return messageElement;
+                  }
+                  
+                  function formatResponse(text) {
+                      // Convert Markdown-style bold and italic to HTML
+                      text = text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>'); // Bold
+                      text = text.replace(/\*(.*?)\*/g, '<em>$1</em>'); // Italic
+
+                      // Handle headings (###)
+                      text = text.replace(/^### (.*?)$/gm, '<h3>$1</h3>'); // H3
+
+                      // Handle ordered lists (e.g., "1. Item")
+                      text = text.replace(/^\d+\.\s+(.*?)(?=\n|$)/gm, '<li>$1</li>');
+                      text = text.replace(/(<li>.*?<\/li>)/gs, '<ol>$1</ol>'); // Wrap in <ol> for ordered lists
+
+                      // Handle bullet points (e.g., "- Item")
+                      text = text.replace(/^\-\s+(.*?)(?=\n|$)/gm, '<li>$1</li>');
+                      text = text.replace(/(<li>.*?<\/li>)/gs, '<ul>$1</ul>'); // Wrap in <ul> for unordered lists
+
+                      // Ensure list continuity by removing unnecessary line breaks within lists
+                      text = text.replace(/<\/ul>\s*<ul>/g, '').replace(/<\/ol>\s*<ol>/g, '');
+
+                      // Split into paragraphs based on double newlines
+                      text = text.split(/\n\s*\n/).map(para => {
+                          // Avoid wrapping list items, headings, or other block-level elements in <p> tags
+                          if (para.startsWith('<h3') || para.startsWith('<ul') || para.startsWith('<ol') || para.startsWith('<li')) {
+                              return para;
+                          }
+                          return `<p>${para.trim()}</p>`;
+                      }).join('');
+
+                      // Ensure there are no lists left open
+                      text = text.replace(/<\/ul><ul>/g, '').replace(/<\/ol><ol>/g, '');
+
+                      return text;
+                  }
+
+                  function hideQuickPrompts() {
+                      const quickPromptsContainer = document.getElementById('quickPromptsContainer');
+                      quickPromptsContainer.style.display = 'none';
+                      document.getElementById('loadingPrompts').style.display = 'block'; // Show loading state
+                      document.querySelector('#suggestions').style.display = 'none'; // Hide the heading after the first question
+
+                      // Add a flag to remember that prompts were hidden
+                      sessionStorage.setItem('promptsHidden', 'true');
+                  }
+
+                  function showQuickPrompts() {
+                      const promptsHidden = sessionStorage.getItem('promptsHidden');
+                      if (!promptsHidden) { // Only show if they haven't been hidden yet
+                          document.getElementById('quickPromptsContainer').style.display = 'block';
+                          document.getElementById('loadingPrompts').style.display = 'none';
+                      }
+                  }
+                  
+                  async function generateNewPrompts(question, answer) {
+                      try {
+                          const response = await fetch('/generate_prompts', {
+                              method: 'POST',
+                              headers: {
+                                  'Content-Type': 'application/json',
+                              },
+                              body: JSON.stringify({ question: question, answer: answer }),
+                          });
+
+                          if (!response.ok) {
+                              throw new Error('Failed to generate new prompts');
+                          }
+
+                          const newPrompts = await response.json();
+                          updatePromptQuestions(newPrompts);
+                      } catch (error) {
+                          console.error('Error generating new prompts:', error);
+                          showQuickPrompts(); // Show prompts even if there's an error
+                      }
+                  }
+                  
+                  function updatePromptQuestions(newPrompts) {
+                        const promptElements = document.querySelectorAll('.qp-question .qp-text');
+                        newPrompts.forEach((prompt, index) => {
+                            if (index < promptElements.length) {
+                                promptElements[index].textContent = prompt;
+                            }
+                        });
+                        showQuickPrompts(); // Show the quick prompts with the updated questions
+                    }
+                  
+                    async function sendMessage(message = null, retries = 3, delay = 1000) {
+                        const userInput = document.getElementById('userInput');
+                        if (!message) {
+                            message = userInput.value.trim();
+                        }
+                        if (message) {
+                            addMessage('Question', message);
+                            userInput.value = '';
+                            hideQuickPrompts();
+
+                            const responseElement = addMessage('Answer', '<span class="typing"></span>');
+
+                            for (let attempt = 0; attempt < retries; attempt++) {
+                                try {
+                                    const response = await fetch('/chat', {
+                                        method: 'POST',
+                                        headers: {
+                                            'Content-Type': 'application/json',
+                                        },
+                                        body: JSON.stringify({
+                                            message: message,
+                                            page_name: 'assistant'  // Pass the page name here
+                                        }),
+                                    });
+
+                                    if (response.status === 429) {
+                                        throw new Error('Rate limit exceeded');
+                                    }
+
+                                    const reader = response.body.getReader();
+                                    const decoder = new TextDecoder();
+                                    let responseText = '';
+
+                                    while (true) {
+                                        const { done, value } = await reader.read();
+                                        if (done) break;
+
+                                        const chunk = decoder.decode(value);
+                                        responseText += chunk;
+                                        const formattedResponse = formatResponse(responseText);
+                                        responseElement.innerHTML = `<strong>Answer:</strong> ${formattedResponse}<span class="typing"></span>`;
+                                        chatHistory.scrollTop = chatHistory.scrollHeight;
+                                    }
+
+                                    const finalFormattedResponse = formatResponse(responseText);
+                                    responseElement.innerHTML = `<strong>Answer:</strong> ${finalFormattedResponse}`;
+
+                                    await generateNewPrompts(message, responseText);
+                                    return;
+                                } catch (error) {
+                                    console.error('Error:', error);
+                                    if (attempt === retries - 1) {
+                                        responseElement.innerHTML = `<strong>Answer:</strong> An error occurred while fetching the response. Please try again later.`;
+                                        showQuickPrompts();
+                                    } else {
+                                        responseElement.innerHTML = `<strong>Answer:</strong> Rate limit exceeded. Retrying in ${delay / 1000} seconds...`;
+                                        await new Promise(resolve => setTimeout(resolve, delay));
+                                        delay *= 2;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                  
+                  document.getElementById('userInput').addEventListener('keypress', function (e) {
+                      if (e.key === 'Enter') {
+                          sendMessage();
+                      }
+                  });
+                  
+                  document.querySelectorAll('.qp-question').forEach(element => {
+                      element.addEventListener('click', function(e) {
+                          e.preventDefault();
+                          const question = this.querySelector('.qp-text').textContent;
+                          sendMessage(question);
+                      });
+                  });
+                  
+                  // Initialize quick prompts
+                  showQuickPrompts();
+                  </script>
+                
+              </div>
+              
+            </div>
+          </div>
+
+
+          <div class="sidebar-navigation">
+            <div class="content-1">
+              <div class="nav">
+                <div class="navigation">
+                  <div class="dropdown">
+                    <div class="button-1 button-3">
+                      <div class="group-39831">
+                        <div class="image-65"><img src="img/rina.png" width="20"></div>
+                        <div class="text-4 inter-semi-bold-oxford-blue-15px">Avery Dennison</div>
+                      </div>
+                      <img class="chevron-down" src="img/chevron-down.svg" alt="chevron-down" />
+                    </div>
+                  </div>
+                  <div class="group-39832">
+                    <div class="flex-col-1 flex-col-3">
+                      <div class="frame-39896">
+                        <a href="logged-in.html">
+                          <div class="nav-item-base-4 nav-item-base-5">
+                            <div class="content">
+                              <img
+                                class="bar-chart-square-02"
+                                src="img/bar-chart-square-02.svg"
+                                alt="bar-chart-square-02"
+                              />
+                              <div class="text text-mdsemibold">Home</div>
+                            </div>
+                          </div>
+                        </a>
+                        <a href="alerts.html">
+                          <div class="nav-item-base-3 nav-item-base-5">
+                            <div class="content">
+                              <img class="bell-02" src="img/bell-02-3.svg" alt="bell-02" />
+                              <div class="text text-mdsemibold">My Alerts</div>
+                            </div>
+                          </div></a
+                        >
+                        <a href="assistant.html">
+                        <div class="nav-item-base-2 nav-item-base-5">
+                          <div class="content">
+                            <img class="bookmark-check" src="img/message-dots-circle.svg" alt="bookmark-check" />
+                            <div class="text text-mdsemibold">Assistant</div>
+                          </div>
+                        </div>
+                        </a>
+                        <div class="nav-item-base-4 nav-item-base-5">
+                          <div class="content">
+                            <img class="bookmark-check" src="img/bookmark-check.svg" alt="bookmark-check" />
+                            <div class="text text-mdsemibold">Subscriptions</div>
+                          </div>
+                        </div>
+
+                      <a href="calendar.html">
+                        <div class="nav-item-base-4 nav-item-base-5">
+                          <div class="content">
+                            <img class="bookmark-check" src="img/calendar.svg" alt="bookmark-check" />
+                            <div class="text text-mdsemibold">Calendar</div>
+                          </div>
+                        </div>
+                      </a>
+
+                      </div>
+                      <div class="nav-item-base"><div class="text-5 inter-normal-mirage-14px">MONITORING</div></div>
+                      <a href="legislation.html">
+                        <div class="nav-item-base-1 nav-item-base-5">
+                          <div class="content">
+                            <img class="scales-02" src="img/scales-02-5.svg" alt="scales-02" />
+                            <div class="text text-mdsemibold">Legislation</div>
+                          </div>
+                        </div>
+                      </a>
+                      <div class="nav-item-base-1 nav-item-base-5">
+                        <div class="content">
+                          <img class="cube-01" src="img/cube-01.svg" alt="cube-01" />
+                          <div class="text text-mdsemibold">Products</div>
+                        </div>
+                      </div>
+                      <div class="nav-item-base-1 nav-item-base-5">
+                        <div class="content">
+                          <img class="beaker-01" src="img/beaker-01.svg" alt="beaker-01" />
+                          <div class="text text-mdsemibold">Substances</div>
+                        </div>
+                      </div>
+                      <div class="group-39833">
+                        <div class="nav-item-base"><div class="text-6 inter-normal-mirage-14px">MANAGE</div></div>
+                        <a href="documents.html">
+                        <div class="nav-item-base-1 nav-item-base-5">
+                          <div class="content">
+                            <img class="folder" src="img/folder.svg" alt="folder" />
+                            <div class="text text-mdsemibold">Documents</div>
+                          </div>
+                        </div>
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <footer class="footer">
+                <div class="account">
+                  <div class="avatar-label-group">
+                    <div class="group-39807">
+                      <div class="overlap-group-1"><div class="text-7 valign-text-middle text-smmedium">AL</div></div>
+                    </div>
+                    <div class="text-and-supporting-text"><div class="text-8 text-smsemibold">Lauren Kobetitsch</div></div>
+                  </div>
+                  <div class="button-2 button-3">
+                    <img class="log-out-01" src="img/log-out-01.svg" alt="log-out-01" />
+                  </div>
+                </div>
+              </footer>
+            </div>
+          </div>
+
+
+          <div class="group-39826">
+            <div class="group-39805">
+              <div class="group-21">
+                <div class="flex-col-2 flex-col-3">
+                  <div class="rectangle-1 rectangle-3"></div>
+                  <div class="flex-row flex">
+                    <div class="rectangle-2 rectangle-3"></div>
+                    <div class="rectangle-6 rectangle-3"></div>
+                  </div>
+                </div>
+                <div class="flex-row flex">
+                  <div class="rectangle"></div>
+                  <div class="rectangle"></div>
+                  <div class="rectangle"></div>
+                </div>
+              </div>
+              <img class="foresight" src="img/foresight-3.svg" alt="foresight" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="overlay-frame-39881" class="overlay-base">
+      <div class="frame-39881 screen">
+        <div class="frame-39881-1">
+          <a href="javascript:HideOverlay('frame-39881', 'animate-disappear');" class="align-self-flex-end"
+            ><img class="x-close" src="img/x-close.svg" alt="x-close" />
+          </a>
+          <h1 class="text inter-normal-mirage-36px">Let’s add your product data</h1>
+          <p class="add-your-product-dat inter-normal-fiord-16px-2">
+            Add your product data to get the latest alerts on regulatory changes that may impact your products and
+            manufacturing processes.
+          </p>
+          <a href="frame-39882.html">
+            <div class="group-39860">
+              <div class="button">
+                <div class="text-1 text-mdsemibold">Add product data</div>
+                <img class="arrow-narrow-right" src="img/arrow-narrow-right.svg" alt="arrow-narrow-right" />
+              </div></div
+          ></a>
+        </div>
+      </div>
+    </div>
+    <script>
+      ShowOverlay = function (overlayName, animationName) {
+        overlayName = "overlay-" + overlayName;
+        var cssClasses = document.getElementById(overlayName).className.split(" ");
+        var last = cssClasses.slice(-1)[0];
+        if (last.lastIndexOf("animate") == -1) {
+          document.getElementById(overlayName).className =
+            document.getElementById(overlayName).className + " " + animationName;
+        }
+        if (window.loadAsyncSrc != undefined) {
+          loadAsyncSrc();
+        }
+      };
+
+      HideOverlay = function (overlayName, animationName) {
+        overlayName = "overlay-" + overlayName;
+        var cssClasses = document.getElementById(overlayName).className.split(" ");
+        var last = cssClasses.slice(-1)[0];
+        if (last.lastIndexOf("animate") != -1) {
+          cssClasses.splice(-1);
+          cssClasses.push(animationName);
+          document.getElementById(overlayName).className = cssClasses.join(" ");
+
+          cssClasses.splice(-1);
+          setTimeout(function () {
+            document.getElementById(overlayName).className = cssClasses.join(" ");
+          }, 1100);
+        }
+        var vids = document.getElementsByTagName("video");
+        if (vids) {
+          for (var i = 0; i < vids.length; i++) {
+            var video = vids.item(i);
+            video.pause();
+          }
+        }
+      };
+
+      closeOutsideOverlay = function (overlay_slug) {
+        var overlay_id = `overlay-${overlay_slug}`;
+        const overlayElement = document.getElementById(overlay_id);
+        overlayElement.addEventListener(
+          `click`,
+          function (event) {
+            var overlay_id = `overlay-${overlay_slug}`;
+            var e = event || window.event;
+            var overlayContainer = overlayElement.getElementsByClassName(`${overlay_slug}`);
+            if (e.target === overlayElement) {
+              HideOverlay(`${overlay_slug}`, "animate-disappear");
+            }
+          },
+          false
+        );
+      };
+
+      CloseOnOverlayClick = function (overlay_slug) {
+        var overlay_id = `overlay-${overlay_slug}`;
+        document.getElementById(overlay_id).addEventListener(
+          `click`,
+          function (event) {
+            {
+              var overlay_id = `overlay-${overlay_slug}`;
+              var e = event || window.event;
+              var overlayElement = document.getElementById(overlay_id);
+              var overlayContainer = overlayElement.getElementsByClassName(`${overlay_slug}`);
+              var clickedDiv = e.toElement || e.target;
+              var dismissButton = clickedDiv.parentElement.id == overlay_id;
+              var clickOutsideOverlay = false;
+              if (overlayContainer.length > 0) {
+                {
+                  clickOutsideOverlay = !overlayContainer[0].contains(clickedDiv) || overlayContainer[0] == clickedDiv;
+                }
+              }
+              if (dismissButton || clickOutsideOverlay) {
+                {
+                  HideOverlay(`${overlay_slug}`, "animate-disappear");
+                }
+              }
+            }
+          },
+          false
+        );
+      };
+    </script>
+    <script>
+      closeOutsideOverlay("frame-39881");
+    </script>
+  </body>
+</html>

@@ -43,8 +43,8 @@
   gap: 272px;
   height: 78px;
   margin-right: 4.0px;
-  padding-right: 64px;
-  min-width: 100%;
+  /* padding-right: 64px; */
+  /* min-width: 100%; */
   justify-content: space-between;
 }
 
@@ -121,7 +121,7 @@
 }
 
 .desktop-3 .text {
-  color: var(--gray-blue700);
+  color: var(--gray700);
   font-weight: 500;
   line-height: 20px;
   position: relative;
@@ -135,7 +135,7 @@
   display: inline-flex;
   gap: 12px;
   justify-content: flex-end;
-  margin-top: 4px;
+  margin-top: -2px;
   position: relative;
 }
 
@@ -250,7 +250,7 @@
   display: flex;
   flex-direction: column;
   gap: 40px;
-  height: 190px;
+  height: 140px;
   position: relative;
   width: 100%;
   margin-bottom: 12px;
@@ -294,14 +294,14 @@
   align-self: stretch;
   display: flex;
   gap: 20px;
-  height: 190px;
+  height: 120px;
   position: relative;
   width: 100%;
 }
 
 .desktop-3 .rectangle-18 {
   background-color: var(--mirage);
-  height: 190px;
+  height: 130px;
   position: relative;
   width: 2px;
 }
@@ -822,7 +822,7 @@
   left: 0;
   min-width: 1440px;
   padding: 19px 24px;
-  position: absolute;
+  position: fixed;
   top: 0;
 }
 
