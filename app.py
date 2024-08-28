@@ -11,6 +11,8 @@ openai_api_key = os.getenv("OPENAI_API_KEY")
 
 if not openai_api_key:
     raise ValueError("No OpenAI API key found. Please set the OPENAI_API_KEY environment variable.")
+else:
+    print(f"OpenAI API Key found: {openai_api_key[:4]}****") 
 
 # Set up the OpenAI API key for the openai package
 openai.api_key = openai_api_key
