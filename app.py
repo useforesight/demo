@@ -2,7 +2,7 @@ import os
 import PyPDF2
 from docx import Document
 from flask import Flask, request, jsonify, render_template, Response, stream_with_context, send_from_directory
-from openai import OpenAI
+import openai
 
 app = Flask(__name__, static_folder='templates')
 
@@ -11,6 +11,9 @@ openai_api_key = os.getenv("OPENAI_API_KEY")
 
 if not openai_api_key:
     raise ValueError("No OpenAI API key found. Please set the OPENAI_API_KEY environment variable.")
+
+# Set up the OpenAI API key for the openai package
+openai.api_key = openai_api_key
 
 # Now you can use openai_api_key wherever needed in your app
 
